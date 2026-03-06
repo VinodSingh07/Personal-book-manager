@@ -24,6 +24,20 @@ export const getBooks = async (req, res) => {
     res.status(500).json(err);
   }
 };
+// update book
+export const updateBook = async (req, res) => {
+  try {
+    const updatedBook = await Book.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }, // returns updated document
+    );
+
+    res.json(updatedBook);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
 
 //delete
 export const deleteBook = async (req, res) => {

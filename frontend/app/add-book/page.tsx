@@ -30,28 +30,28 @@ export default function AddBook() {
 
       <div className="flex justify-center mt-16">
         <div className="bg-white p-8 rounded shadow w-96">
-          <h1 className="text-xl font-bold mb-6">Add Book</h1>
+          <h1 className="text-blue-500 text-xl font-bold mb-6">Add Book</h1>
 
           <input
             placeholder="Title"
-            className="border p-2 w-full mb-4 rounded"
+            className="text-black border p-2 w-full mb-4 rounded"
             onChange={(e) => setTitle(e.target.value)}
           />
 
           <input
             placeholder="Author"
-            className="border p-2 w-full mb-4 rounded"
+            className="text-black border p-2 w-full mb-4 rounded"
             onChange={(e) => setAuthor(e.target.value)}
           />
 
           <input
             placeholder="Tags (comma separated)"
-            className="border p-2 w-full mb-4 rounded"
+            className=" text-black border p-2 w-full mb-4 rounded"
             onChange={(e) => setTags(e.target.value)}
           />
 
           <select
-            className="border p-2 w-full mb-4 rounded"
+            className="text-black border p-2 w-full mb-4 rounded cursor-pointer"
             onChange={(e) => setStatus(e.target.value)}
           >
             <option value="want">Want to Read</option>
@@ -61,7 +61,7 @@ export default function AddBook() {
 
           <button
             onClick={addBook}
-            className="bg-blue-500 text-white w-full py-2 rounded"
+            className="bg-blue-500 text-white w-full py-2 rounded cursor-pointer"
           >
             Add Book
           </button>

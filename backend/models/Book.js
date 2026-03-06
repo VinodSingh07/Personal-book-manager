@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 //Book Schema model
+
 const bookSchema = new mongoose.Schema(
   {
     user: {

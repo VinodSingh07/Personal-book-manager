@@ -3,6 +3,7 @@
 import { useState } from "react";
 import API from "@/services/api";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Signup() {
   const router = useRouter();
@@ -12,45 +13,66 @@ export default function Signup() {
   const [password, setPassword] = useState("");
 
   const signup = async () => {
-    await API.post("/auth/signup", {
-      name,
-      email,
-      password,
-    });
+    try {
+      const res = await API.post("/auth/signup", {
+        name,
+        email,
+        password,
+      });
 
-    router.push("/login");
+      // save token after signup
+      localStorage.setItem("token", res.data.token);
+
+      // go directly to dashboard
+      router.push("/dashboard");
+    } catch (error) {
+      console.error("Signup failed", error);
+    }
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded shadow w-96">
-        <h1 className="text-2xl font-bold mb-6 text-center">Signup</h1>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 to-indigo-100">
+      <div className="bg-white p-10 rounded-2xl shadow-xl w-[400px]">
+        <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">
+          Create Account ✨
+        </h1>
 
         <input
           placeholder="Name"
-          className="border p-2 w-full mb-4 rounded"
+          required
+          className="w-full text-black border rounded-lg p-3 mb-4 focus:ring-2 focus:ring-purple-400 outline-none"
           onChange={(e) => setName(e.target.value)}
         />
 
         <input
+          type="email"
+          required
           placeholder="Email"
-          className="border p-2 w-full mb-4 rounded"
+          className="w-full text-black border rounded-lg p-3 mb-4 focus:ring-2 focus:ring-purple-400 outline-none"
           onChange={(e) => setEmail(e.target.value)}
         />
 
         <input
-          placeholder="Password"
           type="password"
-          className="border p-2 w-full mb-4 rounded"
+          required
+          placeholder="Password"
+          className="w-full text-black border rounded-lg p-3 mb-6 focus:ring-2 focus:ring-purple-400 outline-none"
           onChange={(e) => setPassword(e.target.value)}
         />
 
         <button
           onClick={signup}
-          className="bg-blue-500 text-white w-full py-2 rounded"
+          className="w-full bg-purple-500 hover:bg-purple-600 text-white py-3 rounded-lg font-semibold transition"
         >
-          Signup
+          Sign Up
         </button>
+
+        <p className="text-sm text-center mt-6 text-gray-500">
+          Already have an account?
+          <Link href="/login" className="text-purple-500 ml-1 font-medium">
+            Login
+          </Link>
+        </p>
       </div>
     </div>
   );
