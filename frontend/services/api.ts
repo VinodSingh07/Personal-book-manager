@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://personal-book-manager-1byq.onrender.com",
+  baseURL: "https://personal-book-manager-1byq.onrender.com/api",
 });
 
 API.interceptors.request.use((req) => {
