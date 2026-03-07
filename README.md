@@ -11,6 +11,18 @@ Render free backend sleeps after ~15 minutes, so the first signup/login request 
 
 ---
 
+## 🧪 Demo Credentials
+
+You can use the following credentials to explore the application without creating a new account:
+
+**Email:**
+[Vinod@gmail.com](mailto:Vinod@gmail.com)
+
+**Password:**
+12345678
+
+---
+
 # 🚀 Features
 
 * 🔐 **User Authentication**
