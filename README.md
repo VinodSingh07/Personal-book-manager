@@ -5,6 +5,9 @@ Users can **sign up, log in, add books, edit them, filter by tags or reading sta
 
 🔗 **Live Demo:**
 https://personal-book-manager-ten.vercel.app/
+ 
+(Important)
+Render free backend sleeps after ~15 minutes, so the first signup/login request may take 10–15 seconds. That is normal.
 
 ---
 
@@ -137,11 +140,6 @@ cd frontend
 npm install
 ```
 
-Create `.env.local`
-
-```
-NEXT_PUBLIC_API_URL=http://localhost:5000/api
-```
 
 Run frontend:
 
